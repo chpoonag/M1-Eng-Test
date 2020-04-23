@@ -1,39 +1,44 @@
-﻿/*
+/*
+Modified from Shenzhen Yahboom Tech by chpoonag
+*/
+
+/*
+Copyright (C): 2010-2019, Shenzhen Yahboom Tech
+modified from liusen
 load dependency
-"HuaRobot_M1": "file:../pxt-HuaRobot_M1"
+"mbit": "file:../pxt-mbit"
 */
 
 
-
 //% color="#C814B8" weight=25 icon="\uf1d4"
-namespace HuaRobot_M1_显示类 {
-    
+namespace Hua_Mbit_Display {
+
     export enum enColor {
 
-        //% blockId="OFF" block="灭"
+        //% blockId="OFF" block="off"
         OFF = 0,
-        //% blockId="Red" block="红色"
+        //% blockId="Red" block="red"
         Red,
-        //% blockId="Green" block="绿色"
+        //% blockId="Green" block="green"
         Green,
-        //% blockId="Blue" block="蓝色"
+        //% blockId="Blue" block="blue"
         Blue,
-        //% blockId="White" block="白色"
+        //% blockId="White" block="white"
         White,
-        //% blockId="Cyan" block="青色"
+        //% blockId="Cyan" block="cyan"
         Cyan,
-        //% blockId="Pinkish" block="品红"
+        //% blockId="Pinkish" block="magenta"
         Pinkish,
-        //% blockId="Yellow" block="黄色"
+        //% blockId="Yellow" block="yellow"
         Yellow,
 
     }
     export enum enLED1 {
-        
-        //% blockId="OFF" block="灭"
+
+        //% blockId="OFF" block="off"
         OFF = 0,
-        //% blockId="ON" block="亮"
-        ON =1
+        //% blockId="ON" block="on"
+        ON = 1
     }
 
     //% blockId=M1_LED1 block="LED1|pin %pin|value %value"
@@ -152,29 +157,29 @@ namespace HuaRobot_M1_显示类 {
         }
 
     }
-   
+
 }
 /*****************************************************************************************************************************************
- *  传感器类 ***************************************************************************************************************************** 
- ****************************************************************************************************************************************/
+ *  Sensor ***************************************************************************************************************************** 
+ ***********************************************************************************************************************************/
 
 //% color="#87CEEB" weight=24 icon="\uf1b6"
-namespace HuaRobot_M1_传感器类 {
+namespace Hua_Mbit_Sensor {
 
     export enum enVoice {
-        //% blockId="Voice" block="有声音"
+        //% blockId="Voice" block="sound"
         Voice = 0,
-        //% blockId="NoVoice" block="无声音"
+        //% blockId="NoVoice" block="silence"
         NoVoice = 1
     }
 
     export enum enIR {
-        //% blockId="Get" block="检测到"
+        //% blockId="Get" block="detected"
         Get = 0,
-        //% blockId="NoVoice" block="未检测"
+        //% blockId="NoVoice" block="undetected"
         NoGet = 1
     }
-    
+
 
     //% blockId=M1_Voice_Sensor block="Voice_Sensor|pin %pin|value %value"
     //% weight=100
@@ -201,7 +206,7 @@ namespace HuaRobot_M1_传感器类 {
             control.waitMicros(13);
         }
     }
-    //% blockId=M1_IR_Sensor block="IR_Sensor|pin %pin| |%value|障碍物"
+    //% blockId=M1_IR_Sensor block="IR_Sensor|pin %pin| |%value|obstacle"
     //% weight=100
     //% blockGap=10
     //% color="#87CEEB"
@@ -226,11 +231,11 @@ namespace HuaRobot_M1_传感器类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function IR_Send(pin: DigitalPin): void {
 
-        
+
         IR_send_38k();
 
     }
-   
+
     //% blockId=M1_ultrasonic block="Ultrasonic|Trig %Trig|Echo %Echo"
     //% color="#87CEEB"
     //% weight=100
@@ -253,37 +258,37 @@ namespace HuaRobot_M1_传感器类 {
 }
 
 /*****************************************************************************************************************************************
- *  输入类 *****************************************************************************************************************************
+ *  Input *****************************************************************************************************************************
  ****************************************************************************************************************************************/
 
 //% color="#808080" weight=23 icon="\uf11c"
-namespace HuaRobot_M1_输入类 {
+namespace Hua_Mbit_Input {
 
     export enum enRocker {
-        //% blockId="Nostate" block="无"
+        //% blockId="Nostate" block="No"
         Nostate = 0,
-        //% blockId="Up" block="上"
+        //% blockId="Up" block="up"
         Up,
-        //% blockId="Down" block="下"
+        //% blockId="Down" block="down"
         Down,
-        //% blockId="Left" block="左"
+        //% blockId="Left" block="left"
         Left,
-        //% blockId="Right" block="右"
+        //% blockId="Right" block="right"
         Right,
-        //% blockId="Press" block="按下"
+        //% blockId="Press" block="press"
         Press
     }
 
     export enum enTouch {
-        //% blockId="NoTouch" block="未触摸"
+        //% blockId="NoTouch" block="untouched"
         NoTouch = 0,
-        //% blockId="Touch" block="触摸"
+        //% blockId="Touch" block="touched"
         Touch = 1
     }
     export enum enButton {
-        //% blockId="Press" block="按下"
+        //% blockId="Press" block="press"
         Press = 0,
-        //% blockId="Realse" block="松开"
+        //% blockId="Realse" block="release"
         Realse = 1
     }
 
@@ -362,20 +367,20 @@ namespace HuaRobot_M1_输入类 {
             return false;
         }
 
-    }  
+    }
 }
 
 /*****************************************************************************************************************************************
- *    音乐类 *****************************************************************************************************************************
+ *    Music *****************************************************************************************************************************
  ****************************************************************************************************************************************/
 
 //% color="#D2691E" weight=22 icon="\uf001"
-namespace HuaRobot_M1_音乐类 {
+namespace Hua_Mbit_Music {
     export enum enBuzzer {
 
-        //% blockId="NoBeep" block="不响"
+        //% blockId="NoBeep" block="silence"
         NoBeep = 0,
-        //% blockId="Beep" block="响"
+        //% blockId="Beep" block="sound"
         Beep
     }
 
@@ -395,11 +400,11 @@ namespace HuaRobot_M1_音乐类 {
 }
 
 /*****************************************************************************************************************************************
- *    电机类 *****************************************************************************************************************************
+ *    Motor *****************************************************************************************************************************
  ****************************************************************************************************************************************/
 
 //% color="#0000CD" weight=21 icon="\uf185"
-namespace HuaRobot_M1_电机类 {
+namespace Hua_Mbit_Motor {
 
     //% blockId=M1_Fan block="Fan|pin %pin|speed %value"
     //% weight=100
@@ -428,7 +433,7 @@ namespace HuaRobot_M1_电机类 {
 }
 
 //% color="#006400" weight=20 icon="\uf1b9"
-namespace HuaRobot_M1_小车类 {
+namespace Hua_Mbit_Robot {
 
     const PCA9685_ADD = 0x41
     const MODE1 = 0x00
@@ -454,21 +459,21 @@ namespace HuaRobot_M1_小车类 {
 
     export enum enColor {
 
-        //% blockId="OFF" block="灭"
+        //% blockId="OFF" block="off"
         OFF = 0,
-        //% blockId="Red" block="红色"
+        //% blockId="Red" block="red"
         Red,
-        //% blockId="Green" block="绿色"
+        //% blockId="Green" block="green"
         Green,
-        //% blockId="Blue" block="蓝色"
+        //% blockId="Blue" block="blue"
         Blue,
-        //% blockId="White" block="白色"
+        //% blockId="White" block="white"
         White,
-        //% blockId="Cyan" block="青色"
+        //% blockId="Cyan" block="cygn"
         Cyan,
-        //% blockId="Pinkish" block="品红"
+        //% blockId="Pinkish" block="magenta"
         Pinkish,
-        //% blockId="Yellow" block="黄色"
+        //% blockId="Yellow" block="yellow"
         Yellow,
 
     }
@@ -498,52 +503,52 @@ namespace HuaRobot_M1_小车类 {
     }
     export enum enPos {
 
-        //% blockId="LeftState" block="左边状态"
+        //% blockId="LeftState" block="left state"
         LeftState = 0,
-        //% blockId="RightState" block="右边状态"
+        //% blockId="RightState" block="right state"
         RightState = 1
     }
 
     export enum enLineState {
-        //% blockId="White" block="白线"
+        //% blockId="White" block="white"
         White = 0,
-        //% blockId="Black" block="黑线"
+        //% blockId="Black" block="black"
         Black = 1
 
     }
-    
+
     export enum enAvoidState {
-        //% blockId="OBSTACLE" block="有障碍物"
+        //% blockId="OBSTACLE" block="with obstacles"
         OBSTACLE = 0,
-        //% blockId="NOOBSTACLE" block="无障碍物"
+        //% blockId="NOOBSTACLE" block="without obstacles"
         NOOBSTACLE = 1
 
     }
 
-    
+
     export enum enServo {
-        
+
         S1 = 3,
         S2 = 4,
         S3 = 5,
-		S4 = 9,
-		S5 = 10,
-		S6 = 11
+        S4 = 9,
+        S5 = 10,
+        S6 = 11
     }
     export enum CarState {
-        //% blockId="Car_Run" block="前行"
+        //% blockId="Car_Run" block="forward"
         Car_Run = 1,
-        //% blockId="Car_Back" block="后退"
+        //% blockId="Car_Back" block="back"
         Car_Back = 2,
-        //% blockId="Car_Left" block="左转"
+        //% blockId="Car_Left" block="turn left"
         Car_Left = 3,
-        //% blockId="Car_Right" block="右转"
+        //% blockId="Car_Right" block="turn right"
         Car_Right = 4,
-        //% blockId="Car_Stop" block="停止"
+        //% blockId="Car_Stop" block="stop"
         Car_Stop = 5,
-        //% blockId="Car_SpinLeft" block="原地左旋"
+        //% blockId="Car_SpinLeft" block="rotate left"
         Car_SpinLeft = 6,
-        //% blockId="Car_SpinRight" block="原地右旋"
+        //% blockId="Car_SpinRight" block="rotate right"
         Car_SpinRight = 7
     }
 
@@ -620,10 +625,10 @@ namespace HuaRobot_M1_小车类 {
         setPwm(15, 0, speed);
         setPwm(14, 0, 0);
         //pins.digitalWritePin(DigitalPin.P16, 1);
-       // pins.analogWritePin(AnalogPin.P1, 1023-speed); //速度控制
+        // pins.analogWritePin(AnalogPin.P1, 1023-speed); //速度控制
 
-       // pins.analogWritePin(AnalogPin.P0, speed);//速度控制
-       // pins.digitalWritePin(DigitalPin.P8, 0);
+        // pins.analogWritePin(AnalogPin.P0, speed);//速度控制
+        // pins.digitalWritePin(DigitalPin.P8, 0);
     }
 
     function Car_back(speed: number) {
@@ -689,11 +694,11 @@ namespace HuaRobot_M1_小车类 {
         //pins.digitalWritePin(DigitalPin.P8, 0);
 
         //pins.digitalWritePin(DigitalPin.P16, 1);
-       // pins.analogWritePin(AnalogPin.P1, 1023 - speed);
+        // pins.analogWritePin(AnalogPin.P1, 1023 - speed);
     }
 
     function Car_stop() {
-       
+
         setPwm(12, 0, 0);
         setPwm(13, 0, 0);
 
@@ -725,7 +730,7 @@ namespace HuaRobot_M1_小车类 {
 
         //pins.digitalWritePin(DigitalPin.P16, 0);
         //pins.analogWritePin(AnalogPin.P1, speed);
-    } 
+    }
 
     function Car_spinright(speed: number) {
 
@@ -842,15 +847,15 @@ namespace HuaRobot_M1_小车类 {
     //% color="#C814B8"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function RGB_Car_Program(): neopixel.Strip {
-         
+
         if (!yahStrip) {
             yahStrip = neopixel.create(DigitalPin.P16, 3, NeoPixelMode.RGB);
         }
-        return yahStrip;  
+        return yahStrip;
     }
 
 
-	//% blockId=M1_ultrasonic_car block="ultrasonic return distance(cm)"
+    //% blockId=M1_ultrasonic_car block="ultrasonic return distance(cm)"
     //% color="#006400"
     //% weight=98
     //% blockGap=10
@@ -870,7 +875,7 @@ namespace HuaRobot_M1_小车类 {
         return d / 58;
     }
 
-    //% blockId=M1_Music_Car block="Music_Car|%index"
+    //% blockId=Hua_Mbit_Music_Car block="Music_Car|%index"
     //% weight=97
     //% blockGap=10
     //% color="#006400"
@@ -910,7 +915,7 @@ namespace HuaRobot_M1_小车类 {
         // 50hz: 20,000 us
         let us = (value * 1800 / 180 + 600); // 0.6 ~ 2.4
         let pwm = us * 4096 / 20000;
-        setPwm(num , 0, pwm);
+        setPwm(num, 0, pwm);
 
     }
 
@@ -926,11 +931,11 @@ namespace HuaRobot_M1_小车类 {
         switch (value) {
             case enAvoidState.OBSTACLE: {
                 if (pins.analogReadPin(AnalogPin.P3) < 800) {
-                
+
                     temp = true;
                     setPwm(8, 0, 0);
                 }
-                else {                 
+                else {
                     temp = false;
                     setPwm(8, 0, 4095);
                 }
@@ -1032,4 +1037,4 @@ namespace HuaRobot_M1_小车类 {
             case CarState.Car_SpinRight: Car_spinright(speed); break;
         }
     }
-}
+}   
